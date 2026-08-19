@@ -22,7 +22,7 @@ body {
   font-size: 1rem;
   line-height: 1.6;
   color: #333;
-  background-color: #d1d1d1;
+  background-color: #fff;
 }
 
 img {
@@ -180,7 +180,7 @@ ul {
 
 /* ---------- Section Base ---------- */
 .section {
-  padding: 2.5rem 0;
+  padding: 3rem 0;
 }
 
 .section--purple {
@@ -544,19 +544,6 @@ ul {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ---------- Spacers (match original Wix spacing) ---------- */
-.spacer {
-  height: 40px;
-}
-
-.spacer--white {
-  background: #fff;
-}
-
-.spacer--purple {
-  background: #9a78ab;
-}
-
 /* ==========================================================================
    Responsive
    ========================================================================== */
@@ -699,10 +686,6 @@ ul {
     text-align: center;
   }
 
-  /* Spacers smaller on mobile */
-  .spacer {
-    height: 20px;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
