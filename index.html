@@ -132,6 +132,16 @@
         <img src="images/logo-purple.png" alt="Pixelasia Productions Dili logo" width="286" height="100">
       </a>
 
+      <!-- Social icons in header bar (brand colors) -->
+      <div class="header-social">
+        <a href="https://www.youtube.com/channel/UCzKC-LYa0nfVPvSzRh6H5_A" class="header-social__link header-social__link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/Pixelasia/" class="header-social__link header-social__link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+      </div>
+
       <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
         <span class="nav-toggle__bar"></span>
         <span class="nav-toggle__bar"></span>
@@ -148,10 +158,10 @@
           <li><a href="#contact" class="main-nav__link">Contact</a></li>
         </ul>
         <div class="nav-social">
-          <a href="https://www.youtube.com/channel/UCzKC-LYa0nfVPvSzRh6H5_A" class="nav-social__link" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.youtube.com/channel/UCzKC-LYa0nfVPvSzRh6H5_A" class="nav-social__link nav-social__link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
           </a>
-          <a href="https://www.facebook.com/Pixelasia/" class="nav-social__link" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/Pixelasia/" class="nav-social__link nav-social__link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
           </a>
         </div>
@@ -171,7 +181,7 @@
     <!-- About / WE MAKE IT -->
     <section id="about" class="section section--white">
       <div class="container">
-        <h1 class="section__title">We Make It</h1>
+        <h1 class="section__title">WE MAKE IT</h1>
         <div class="about__grid">
           <div class="about__text-col">
             <p class="about__text">Pixelasia Productions Dili was founded in Timor-Leste's capital in December 2011 by German director Lena Lenzen. Since then we have been constantly growing, not only in size but also in experience.</p>
@@ -188,8 +198,13 @@
     <section id="portfolio" class="section section--purple">
       <div class="container">
         <h2 class="section__title">Our Portfolio</h2>
-        <p class="portfolio__text">As a full-service audiovisual production and event management company in Dili, we produce corporate, educational and promotional videos, TV, radio and cinema commercials and documentaries, with state-of-the-art equipment. We also offer film production services for clients from abroad.</p>
-        <p class="portfolio__text">We organise corporate and charity events, concerts, international conferences and road shows. Since 2019, the Dili International Film Festival (DIFF) brings entertainment and education to film lovers in Timor-Leste.</p>
+        <div class="portfolio__grid">
+          <img src="images/team.jpg" alt="Sunset over the coastline of Dili, Timor-Leste" class="portfolio__image" width="1600" height="1066" loading="lazy">
+          <div class="portfolio__text-wrap">
+            <p class="portfolio__text">As a full-service audiovisual production and event management company in Dili, we produce corporate, educational and promotional videos, TV, radio and cinema commercials and documentaries, with state-of-the-art equipment. We also offer film production services for clients from abroad.</p>
+            <p class="portfolio__text">We organise corporate and charity events, concerts, international conferences and road shows. Since 2019, the Dili International Film Festival (DIFF) brings entertainment and education to film lovers in Timor-Leste.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -227,27 +242,33 @@
         <div class="services__grid">
           <!-- Creative Services -->
           <article class="service-card">
-            <img src="images/service-creative.jpg" alt="Camera operator filming on location in Timor-Leste" class="service-card__image" width="800" height="1204" loading="lazy">
-            <div class="service-card__body">
+            <div class="service-card__image-wrap">
+              <img src="images/service-creative.jpg" alt="Camera operator filming on location in Timor-Leste" class="service-card__image" width="800" height="1204" loading="lazy">
               <h3 class="service-card__title">Creative Services</h3>
+            </div>
+            <div class="service-card__body">
               <p class="service-card__text">We have produced award-winning documentaries such as "Running Far" about a Timorese runner at the New York Marathon or "The Road to acceptance" for the LGBTI community of Timor-Leste. Our superheroes "Super Trainer" and "Feto Fantastiku" show how business can be better and conflicts can be solved without using violence, and our everyday heroes showcase their strength and determination in our internationally acclaimed documentaries.</p>
             </div>
           </article>
 
           <!-- Events -->
           <article class="service-card">
-            <img src="images/service-events.jpg" alt="Live event production and conference setup in Dili" class="service-card__image" width="800" height="533" loading="lazy">
-            <div class="service-card__body">
+            <div class="service-card__image-wrap">
+              <img src="images/service-events.jpg" alt="Live event production and conference setup in Dili" class="service-card__image" width="800" height="533" loading="lazy">
               <h3 class="service-card__title">Events</h3>
+            </div>
+            <div class="service-card__body">
               <p class="service-card__text">We provide professional event management in Dili, including concerts, conferences, road shows, film festivals and corporate celebrations. Working together with a range of clients from government sectors to international companies, we have extensive experience in planning and organising events across Timor-Leste.</p>
             </div>
           </article>
 
           <!-- Radio -->
           <article class="service-card">
-            <img src="images/service-radio.jpg" alt="Radio production studio at M3 Radio Dili" class="service-card__image" width="800" height="1197" loading="lazy">
-            <div class="service-card__body">
+            <div class="service-card__image-wrap">
+              <img src="images/service-radio.jpg" alt="Radio production studio at M3 Radio Dili" class="service-card__image" width="800" height="1197" loading="lazy">
               <h3 class="service-card__title">Radio</h3>
+            </div>
+            <div class="service-card__body">
               <p class="service-card__text">We develop and produce radio advertising in Timor-Leste – in Tetun for local radio stations and in English to be broadcasted on our own radio station here at Pixelasia, M3 Radio Dili. Since the beginning we have worked closely with our Timorese crew to ensure that we understand our target group and use appropriate language or slang – in Dili and in the districts.</p>
             </div>
           </article>
@@ -350,14 +371,14 @@
         <p><a href="mailto:dilipixelasia@gmail.com">dilipixelasia@gmail.com</a> · <a href="tel:+67078024019">+670 7802 4019</a></p>
       </div>
       <div class="footer__social">
-        <a href="https://www.youtube.com/channel/UCzKC-LYa0nfVPvSzRh6H5_A" class="footer__social-link" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.youtube.com/channel/UCzKC-LYa0nfVPvSzRh6H5_A" class="footer__social-link footer__social-link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
         </a>
-        <a href="https://www.facebook.com/Pixelasia/" class="footer__social-link" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.facebook.com/Pixelasia/" class="footer__social-link footer__social-link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
         </a>
       </div>
-      <p class="footer__copyright">&copy; 2024 Pixelasia Productions Dili, Unipessoal Lda. All rights reserved.</p>
+      <p class="footer__copyright">&copy; 2026 Pixelasia Productions Dili, Unipessoal Lda. All rights reserved.</p>
     </div>
   </footer>
 
