@@ -265,6 +265,29 @@ permalink: /index.html
       </div>
     </section>
 
+    <!-- Facebook Feed (purple) -->
+    <section id="facebook" class="section section--purple">
+      <div class="container">
+        <h2 class="section__title">Follow Us on Facebook</h2>
+        <div class="facebook-plugin">
+          <div id="fb-root"></div>
+          <div class="fb-page"
+               data-href="{{ site.facebookUrl }}"
+               data-tabs="timeline"
+               data-width="500"
+               data-height="600"
+               data-small-header="false"
+               data-adapt-container-width="true"
+               data-hide-cover="false"
+               data-show-facepile="true">
+            <blockquote cite="{{ site.facebookUrl }}" class="fb-xfbml-parse-ignore">
+              <a href="{{ site.facebookUrl }}">Pixelasia Productions Dili on Facebook</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Gallery (white) -->
     <section id="gallery" class="section section--white">
       <div class="container">
@@ -345,6 +368,10 @@ permalink: /index.html
       <p class="footer__copyright">&copy; 2026 {{ site.company }}, {{ site.legal }}. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Facebook SDK for JavaScript -->
+  <script async defer crossorigin="anonymous"
+          src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v21.0"></script>
 
   <!-- Minimal JS: Mobile Navigation Toggle -->
   <script>

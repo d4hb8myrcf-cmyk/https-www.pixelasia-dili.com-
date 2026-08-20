@@ -404,6 +404,19 @@ ul {
   text-align: justify;
 }
 
+/* ---------- Facebook Plugin ---------- */
+.facebook-plugin {
+  display: flex;
+  justify-content: center;
+}
+
+.facebook-plugin .fb-page,
+.facebook-plugin .fb-page span,
+.facebook-plugin .fb-page span iframe[style] {
+  width: 100% !important;
+  max-width: 500px;
+}
+
 /* ---------- Gallery ---------- */
 .gallery__grid {
   display: grid;
@@ -771,6 +784,13 @@ ul {
   .services__grid {
     grid-template-columns: 1fr;
     gap: 1.25rem;
+  }
+
+  /* Facebook Plugin */
+  .facebook-plugin .fb-page,
+  .facebook-plugin .fb-page span,
+  .facebook-plugin .fb-page span iframe[style] {
+    max-width: 100% !important;
   }
 
   /* Gallery */
