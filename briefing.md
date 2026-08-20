@@ -1,10 +1,10 @@
 # Pixelasia Productions Dili — Onepager Struktur
 
-> **Stand August 2026:** Dieses Briefing beschreibt die gewünschte Zielstruktur der neuen Website. Die Umsetzung liegt als Redesign in `index.html` (Option 1b "Clean Modern") vor, ist aber noch nicht deployed — live ist aktuell der Wix-Nachbau über `index.njk` + Eleventy + Netlify. Details siehe `README.md`.
+> **Stand August 2026:** Dieses Briefing beschreibt die Zielstruktur der Website. Die Umsetzung ist als Redesign in `index.html` (Option 1b "Clean Modern") umgesetzt und **live via GitHub Pages** unter [d4hb8myrcf-cmyk.github.io/https-www.pixelasia-dili.com-](https://d4hb8myrcf-cmyk.github.io/https-www.pixelasia-dili.com-/). Details siehe `README.md`.
 
 ## Technische Rahmenbedingungen
 
-- Kein Wix. Aktuell: Eleventy 3 + Netlify + Decap CMS
+- Kein Wix. Aktuell: Statisches HTML + GitHub Pages
 - CDN mit Asia-Pacific-Knoten
 - Schema-Markup: LocalBusiness + VideoProductionCompany + Service
 - Ladezeit-Ziel: unter 1 Sekunde
