@@ -8,7 +8,9 @@ Website für [Pixelasia Productions Dili](https://www.pixelasia-dili.com), die e
 
 | Was | URL |
 |-----|-----|
-| **Live-Seite** | [d4hb8myrcf-cmyk.github.io/https-www.pixelasia-dili.com-](https://d4hb8myrcf-cmyk.github.io/https-www.pixelasia-dili.com-/) |
+| **Live-Seite** | [cute-sprite-83682f.netlify.app](https://cute-sprite-83682f.netlify.app/) |
+| **CMS (Admin)** | [cute-sprite-83682f.netlify.app/admin/](https://cute-sprite-83682f.netlify.app/admin/) |
+| **Netlify Dashboard** | [app.netlify.com/projects/cute-sprite-83682f](https://app.netlify.com/projects/cute-sprite-83682f) |
 | **GitHub Repo** | [github.com/d4hb8myrcf-cmyk/https-www.pixelasia-dili.com-](https://github.com/d4hb8myrcf-cmyk/https-www.pixelasia-dili.com-) |
 | **Geplante Domain** | pixelasia-dili.com (DNS-Umstellung noch ausstehend) |
 
@@ -18,162 +20,187 @@ Website für [Pixelasia Productions Dili](https://www.pixelasia-dili.com), die e
 
 | Komponente | Technologie |
 |------------|-------------|
-| Hosting | **GitHub Pages** (statisch, direkt aus dem Repository) |
-| Hauptseite | `index.html` — statisches HTML (Redesign "Clean Modern", Option 1b) |
-| CSS | `css/style.css` — Mobile-First, Custom Properties |
-| JS | `js/main.js` — Navigation, Smooth Scroll, Formular |
-| Fonts | Google Fonts (DM Sans, Playfair Display) |
-| Repository | GitHub |
+| Hosting | [Netlify](https://www.netlify.com/) (kostenloser Plan) |
+| Build | [Eleventy (11ty)](https://www.11ty.dev/) v3 — Static Site Generator |
+| CMS | [Decap CMS](https://decapcms.org/) (ehemals Netlify CMS) |
+| Template | `index.njk` (Nunjucks) |
+| CSS | `style.css` — Custom Properties, responsive |
+| Fonts | System-Fonts (Arial, Helvetica, sans-serif) |
+| Facebook | Facebook Page Plugin (SDK v21.0) |
 
-### Vorhandene, aber nicht aktiv genutzte Komponenten
+---
 
-Das Repository enthält zusätzlich eine **Eleventy + Decap CMS**-Konfiguration aus einer früheren Phase. Diese wird aktuell nicht genutzt, da GitHub Pages die statische `index.html` direkt ausliefert:
+## ⚠️ WICHTIG: Webseite und CMS synchron halten
 
-| Datei | Zweck | Status |
-|-------|-------|--------|
-| `index.njk` | Eleventy-Template (alter Wix-Nachbau) | ⏸️ Inaktiv |
-| `style.css` (Root) | Stylesheet für Wix-Nachbau | ⏸️ Inaktiv |
-| `_data/*.json` | CMS-Datendateien | ⏸️ Inaktiv |
-| `admin/` | Decap CMS Interface | ⏸️ Inaktiv |
-| `eleventy.config.js` | Eleventy-Konfiguration | ⏸️ Inaktiv |
-| `netlify.toml` | Netlify-Build-Konfiguration | ⏸️ Inaktiv |
+> **Jede Änderung an der Webseite (index.njk, style.css) muss auch im CMS (admin/config.yml) und den Datendateien (_data/*.json) aktualisiert werden — und umgekehrt.**
+>
+> Wenn die Struktur in `index.njk` nicht zu den Feldern in `config.yml` und den Daten in `_data/*.json` passt, kann der Build fehlschlagen oder Inhalte verschwinden.
+>
+> **Checkliste bei Änderungen:**
+> 1. Template ändern (`index.njk`) → CMS-Config anpassen (`admin/config.yml`) → Daten-Datei anlegen/anpassen (`_data/*.json`)
+> 2. CMS-Feld hinzufügen (`config.yml`) → Template anpassen (`index.njk`) → Default-Wert in Daten-Datei (`_data/*.json`)
+> 3. Immer alle drei Stellen prüfen!
 
 ---
 
 ## Projektstruktur
 
 ```
-├── index.html                # ✅ Hauptseite (Redesign "Clean Modern") — DEPLOYED via GitHub Pages
-├── css/
-│   └── style.css             # ✅ Stylesheet (Option 1b, mobile-first, Design Tokens)
-├── js/
-│   └── main.js               # ✅ JavaScript (Navigation, Smooth Scroll, Kontaktformular)
+├── index.njk                 # Haupttemplate (Nunjucks) — Eleventy baut daraus index.html
+├── style.css                 # Stylesheet (wird 1:1 kopiert nach _site/)
+├── _headers                  # Netlify HTTP-Headers (CSP, Security)
+├── eleventy.config.js        # Eleventy-Konfiguration (Passthrough, Markdown-Filter)
+├── netlify.toml              # Netlify Build-Konfiguration
+├── package.json              # Dependencies (Eleventy, markdown-it)
 │
-├── images/                   # Lokale Bilder
-│   ├── logo-purple.png / logo-white.png / logo-horizontal.png / logo-3d.jpg
-│   ├── og-image.jpg
-│   ├── favicon-16x16.png / favicon-32x32.png / apple-touch-icon.png
+├── _data/                    # Inhalte (werden vom CMS bearbeitet)
+│   ├── site.json             # Globale Einstellungen (Firma, Kontakt, URLs)
+│   ├── about.json            # "WE MAKE IT" Sektion
+│   ├── portfolio.json        # Portfolio Sektion
+│   ├── story.json            # Our Story Sektion
+│   ├── services.json         # Services + Karten
+│   ├── facebook.json         # Facebook Feed Sektion (Heading, Einstellungen)
+│   ├── gallery.json          # Bildergalerie
+│   └── customSections.json   # Benutzerdefinierte Sektionen
+│
+├── admin/                    # Decap CMS
+│   ├── index.html            # CMS-Login-Seite
+│   └── config.yml            # CMS-Konfiguration (Felder, Collections)
+│
+├── images/                   # Bilder (lokal)
+│   ├── logo-purple.png / logo-white.png / logo-3d.jpg
+│   ├── favicon-*.png / apple-touch-icon.png
 │   ├── gallery-01.jpg … gallery-10.jpg
 │   ├── service-creative.jpg / service-events.jpg / service-radio.jpg
-│   ├── story.jpg / team.jpg
+│   └── team.jpg
 │
-├── design-reference.html     # Design-Referenz/Prototyp
-├── briefing.md               # Original-Briefing (Seitenstruktur, SEO, Content-Vorgaben)
-├── textaenderungen.pdf       # Dokumentation der Textänderungen
 ├── robots.txt                # SEO
+├── sitemap.njk               # Sitemap-Template
+├── textaenderungen.pdf       # Dokumentation der Textänderungen
+├── briefing.md               # Original-Briefing
 │
-├── index.njk                 # ⏸️ Alter Wix-Nachbau (Eleventy-Template, derzeit inaktiv)
-├── style.css                 # ⏸️ Stylesheet für Wix-Nachbau
-├── _data/                    # ⏸️ Eleventy-Datendateien (JSON)
-│   ├── site.json / about.json / portfolio.json
-│   ├── story.json / services.json / gallery.json
-├── admin/                    # ⏸️ Decap CMS
-│   ├── index.html / config.yml
-├── eleventy.config.js        # ⏸️ Eleventy-Konfiguration
-├── netlify.toml              # ⏸️ Netlify-Konfiguration
-├── sitemap.njk               # ⏸️ Sitemap-Template
-├── _headers                  # ⏸️ Netlify HTTP-Headers
-└── package.json              # ⏸️ Dependencies (Eleventy)
+├── index.html                # ⚠️ Statische Alternativversion (wird NICHT deployed)
+├── css/style.css             # ⚠️ Stylesheet der Alternativversion
+├── js/main.js                # ⚠️ JS der Alternativversion
+└── design-reference.html     # Design-Referenz/Prototyp
 ```
+
+> **Hinweis:** `index.html`, `css/style.css` und `js/main.js` gehören zu einem alternativen "Clean Modern"-Design, das derzeit **nicht** deployed wird. Netlify baut aus `index.njk` via Eleventy.
+
+---
+
+## Seitenstruktur (index.njk)
+
+Die Seite ist ein Onepager mit folgenden Sektionen:
+
+| # | Sektion | Hintergrund | Datenquelle |
+|---|---------|-------------|-------------|
+| 1 | Header/Navigation | Weiß | `site.json` |
+| 2 | Hero (Logo-Banner) | Lila | `site.json` |
+| 3 | About / "WE MAKE IT" | Weiß | `about.json` |
+| 4 | Portfolio | Lila | `portfolio.json` |
+| 5 | Our Story | Weiß | `story.json` |
+| 6 | Services (Intro) | Lila | `services.json` |
+| 7 | Service Cards | Weiß | `services.json` |
+| 8 | **Custom Sections** ➕ | Wählbar (weiß/lila) | `customSections.json` |
+| 9 | **Facebook Feed** | Lila | `facebook.json` + `site.json` |
+| 10 | Gallery | Weiß | `gallery.json` |
+| 11 | Contact | Lila | `site.json` |
+| 12 | Footer | Dunkel | `site.json` |
+
+---
+
+## CMS nutzen
+
+1. Gehe zu **[/admin/](https://cute-sprite-83682f.netlify.app/admin/)**
+2. Einloggen (Netlify Identity)
+3. Im Menü links die gewünschte Sektion auswählen und bearbeiten
+4. „Publish" klicken → Netlify baut die Seite automatisch neu (dauert ~30 Sekunden)
+
+### Custom Sections hinzufügen
+
+Unter **➕ Custom Sections** im CMS:
+1. „Add Section" klicken
+2. **Heading**: Überschrift der neuen Sektion
+3. **Content**: Text mit dem Markdown-Editor (fett, kursiv, Links, Listen möglich)
+4. **Background Color**: Weiß oder Lila wählen
+5. Publish → Die neuen Sektionen erscheinen zwischen den Service Cards und dem Facebook Feed
+
+### Facebook Feed anpassen
+
+Unter **📄 Page Sections → Facebook Feed** im CMS:
+- **Section Heading**: z.B. "Latest from Pixelasia"
+- **Plugin Height**: Höhe in Pixeln (Standard: 600)
+- **Show Timeline / Cover / Facepile**: Ein/Aus-Schalter
+
+---
+
+## Facebook Page Plugin
+
+Das Facebook Page Plugin zeigt die neuesten Beiträge der [Pixelasia Facebook-Seite](https://www.facebook.com/Pixelasia/) direkt auf der Website.
+
+**Technische Details:**
+- SDK: `connect.facebook.net/en_US/sdk.js` (v21.0, async geladen)
+- `data-adapt-container-width="true"` für responsive Anpassung
+- Maximale Breite: 500px (Facebook SDK-Limit)
+- CSP-Headers in `_headers` erweitert für: `connect.facebook.net`, `facebook.com`, `fbcdn.net`
 
 ---
 
 ## Deployment
 
-**GitHub Pages** liefert `index.html` direkt aus dem Root des `main`-Branch aus.
+**Netlify** baut die Seite automatisch bei jedem Push auf `main`:
 
-**Workflow:**
-1. Änderungen an `index.html`, `css/style.css`, `js/main.js` oder Bildern vornehmen
+1. `npm install` — Dependencies installieren
+2. `npx @11ty/eleventy` — Eleventy baut `_site/` aus Templates + Daten
+3. Netlify veröffentlicht den `_site/`-Ordner
+
+**Workflow für Code-Änderungen:**
+1. Dateien bearbeiten (`index.njk`, `style.css`, `_data/*.json`, `admin/config.yml`)
 2. Committen und auf `main` pushen
-3. GitHub Pages aktualisiert die Live-Seite automatisch (wenige Sekunden)
+3. Netlify baut und deployed automatisch (~30 Sekunden)
 
-### Lokale Vorschau
-
-Einfach `index.html` im Browser öffnen — kein Build-Schritt nötig.
-
----
-
-## Seitenstruktur (index.html)
-
-Die Live-Seite ist ein Onepager mit folgenden Sektionen:
-
-1. **Navigation** — Sticky, Logo links, Links + CTA rechts, Hamburger-Menü auf Mobile
-2. **Hero** — Crossfade-Slideshow mit Ken-Burns-Zoom (6 Bilder, 24s Loop), Gradient-Overlay, Headline + CTAs
-3. **Selected Work** — 6 Projekte als Bildkacheln (2-spaltig Desktop, 1-spaltig Mobile)
-4. **Proof Bar** — 4 Kennzahlen auf dunklem Hintergrund
-5. **Clients** — Logo-Leiste (aktuell als Text: UNDP, UNICEF, IOM, WHO, EU, etc.)
-6. **Featured Case** — Mobile Cinema Kampagne (Challenge → Production → Result)
-7. **Services** — 5 Service-Karten (Film, Commercials, Events, Radio, Production Services)
-8. **FAQ** — Accordion mit 3 Fragen (SEO-optimiert, Schema-Markup)
-9. **About** — 3 Zitat-Karten + Kurztext
-10. **Team** — 3 Platzhalter-Karten (Fotos noch zu beschaffen)
-11. **DIFF** — Dili International Film Festival (eigene Sektion)
-12. **Contact** — Formular + Kontaktdaten + Social Links
-13. **Footer** — Logo + Copyright
-
----
-
-## Hero-Slideshow
-
-Die Hero-Sektion enthält eine automatische **Crossfade-Slideshow mit Ken-Burns-Zoom**:
-
-- **6 Projektbilder** übereinander positioniert (alle `position: absolute`, initial `opacity: 0`)
-- Jedes Bild startet mit **4 Sekunden Versatz** (`animation-delay: 0s, 4s, 8s, 12s, 16s, 20s`)
-- CSS-Keyframes `heroFade` in `css/style.css`: Bild blendet auf `opacity: 0.4` ein und zoomt von `scale(1)` auf `scale(1.08)`
-- **Gesamter Loop: 24 Sekunden**, nahtloser Neustart
-- Gradient-Overlay bleibt darüber bestehen
-
-**Bilder austauschen:** `src`-URLs der 6 `<img>`-Tags in `index.html` ersetzen. Bei anderer Anzahl: `animation-delay`-Abstände und Dauer anpassen (`Dauer = Anzahl × 4s`).
-
----
-
-## Design Tokens
-
-### Farben
-| Token | Wert | Verwendung |
-|-------|------|------------|
-| Primary | `#6B3FA0` | Buttons, Akzente, Tags |
-| Primary Hover | `#7d4fb5` | Hover-States |
-| Lavender | `rgba(200,170,255,0.9)` | Hero-Akzenttext |
-| Dark | `#1a1128` | Hero-BG, Proof Bar, DIFF, Footer |
-| BG Main | `#fcfaf7` | Haupt-Hintergrund |
-| BG Alt | `#f5f2ed` | Alternierende Sektionen |
-
-### Typografie
-| Element | Font | Größe |
-|---------|------|-------|
-| H1 Hero | Playfair Display | 40px (Mobile) / 72px (Desktop) |
-| H2 Sektion | Playfair Display | 44px |
-| Body | DM Sans | 16px |
-| Nav | DM Sans | 14px |
+**Workflow für Content-Änderungen:**
+1. CMS unter `/admin/` öffnen
+2. Inhalte bearbeiten
+3. "Publish" klicken → CMS committet nach GitHub → Netlify baut automatisch
 
 ---
 
 ## SEO
 
-- **Schema Markup:** LocalBusiness, VideoProductionCompany, Organization, Service (×5), FAQPage
+- **Schema Markup:** Organization, LocalBusiness, Service (×3)
 - **Open Graph + Twitter Cards** vollständig
 - **Canonical:** `https://www.pixelasia-dili.com`
 - **Favicon:** PNG-Formate (16x16, 32x32, Apple Touch Icon)
-- **robots.txt** vorhanden
+- **robots.txt** + **sitemap.xml** vorhanden
+- **Alt-Texte** für alle Bilder
+
+---
+
+## Security Headers
+
+In `_headers` konfiguriert:
+- `X-Frame-Options: SAMEORIGIN`
+- `X-Content-Type-Options: nosniff`
+- `Referrer-Policy: strict-origin-when-cross-origin`
+- `Content-Security-Policy` (erlaubt: Facebook SDK, Netlify Identity, unpkg.com für CMS)
 
 ---
 
 ## Status
 
-- [x] Redesign "Clean Modern" (Option 1b) erstellt und deployed
-- [x] GitHub Pages Hosting aktiv
-- [x] Hero-Crossfade-Slideshow mit Ken-Burns-Zoom
-- [x] SEO-Optimierung (Schema.org, Meta-Tags, OG, FAQ)
-- [x] Mobile-First Responsive Design
+- [x] Statischer Onepager mit Eleventy
+- [x] Decap CMS für Content-Verwaltung
+- [x] Netlify Hosting + automatische Deploys
+- [x] Facebook Page Plugin (Timeline)
+- [x] Custom Sections (CMS-gesteuert, Hintergrundfarbe wählbar)
+- [x] SEO-Optimierung (Schema.org, Meta-Tags, OG)
+- [x] Responsive Design
+- [x] Security Headers + CSP
 - [ ] Custom Domain (pixelasia-dili.com) umstellen
-- [ ] Bilder von `static.wixstatic.com` durch lokale, optimierte Assets ersetzen (WebP/AVIF)
-- [ ] Team-Fotos (aktuell Platzhalter)
-- [ ] Client-Logos (aktuell nur Text)
-- [ ] Showreel-Video (MP4, 30–45 Sek.) für Hero
-- [ ] Kontaktformular an Backend/E-Mail-Service anbinden
-- [ ] Instagram-Link ergänzen
-- [ ] Alte Eleventy/CMS-Dateien aufräumen oder entfernen
+- [ ] Bilder optimieren (WebP/AVIF)
+- [ ] Kontaktformular E-Mail-Benachrichtigung einrichten
 - [ ] Wix-Abo kündigen
 
 ---
@@ -181,5 +208,5 @@ Die Hero-Sektion enthält eine automatische **Crossfade-Slideshow mit Ken-Burns-
 ## Kontakt
 
 **Pixelasia Productions Dili, Unipessoal Lda**
-Rua St. Antonio 11, Dili, Timor-Leste
-+670 7802 4019 · info@pixelasia-dili.com
+Rua St. Antonio, 11 · Dili, Timor-Leste
++670 7802 4019 · dilipixelasia@gmail.com

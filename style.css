@@ -404,6 +404,25 @@ ul {
   text-align: justify;
 }
 
+/* ---------- Custom Sections (CMS) ---------- */
+.custom-section__content {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.custom-section__content p {
+  margin-bottom: 1rem;
+}
+
+.section--white .custom-section__content {
+  color: #333;
+}
+
+.section--purple .custom-section__content {
+  color: #fff;
+}
+
 /* ---------- Facebook Plugin ---------- */
 .facebook-plugin {
   display: flex;
@@ -414,7 +433,6 @@ ul {
 .facebook-plugin .fb-page span,
 .facebook-plugin .fb-page span iframe[style] {
   width: 100% !important;
-  max-width: 500px;
 }
 
 /* ---------- Gallery ---------- */

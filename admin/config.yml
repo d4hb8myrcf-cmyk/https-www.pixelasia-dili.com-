@@ -108,6 +108,17 @@ collections:
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
 
+      # Facebook Feed
+      - name: "facebook"
+        label: "Facebook Feed"
+        file: "_data/facebook.json"
+        fields:
+          - { label: "Section Heading", name: "heading", widget: "string", default: "Latest from Pixelasia" }
+          - { label: "Plugin Height (px)", name: "height", widget: "number", default: 600, value_type: "int", min: 200, max: 1000 }
+          - { label: "Show Timeline Posts", name: "showTimeline", widget: "boolean", default: true }
+          - { label: "Show Cover Photo", name: "showCover", widget: "boolean", default: true }
+          - { label: "Show Facepile (Likes)", name: "showFacepile", widget: "boolean", default: true }
+
       # Gallery
       - name: "gallery"
         label: "Gallery"
@@ -119,3 +130,31 @@ collections:
             fields:
               - { label: "Image", name: "src", widget: "image" }
               - { label: "Alt Text", name: "alt", widget: "string" }
+
+  # ─── Custom Sections ───
+  - name: "customSections"
+    label: "➕ Custom Sections"
+    description: "Add your own sections to the page. They appear between Services and Facebook Feed."
+    files:
+      - name: "customSections"
+        label: "Custom Sections"
+        file: "_data/customSections.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            label_singular: "Section"
+            summary: "{{fields.heading}} ({{fields.background}})"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Content"
+                name: "content"
+                widget: "markdown"
+                hint: "Use the editor to add text, links, bold, italic, etc."
+              - label: "Background Color"
+                name: "background"
+                widget: "select"
+                options:
+                  - { label: "White", value: "white" }
+                  - { label: "Purple", value: "purple" }
+                default: "white"

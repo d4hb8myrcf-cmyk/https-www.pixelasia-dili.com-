@@ -265,21 +265,33 @@ permalink: /index.html
       </div>
     </section>
 
+    <!-- Custom Sections (user-created via CMS) -->
+    {% for section in customSections.sections %}
+    <section id="custom-{{ loop.index }}" class="section section--{{ section.background | default('white') }}">
+      <div class="container">
+        <h2 class="section__title">{{ section.heading }}</h2>
+        <div class="custom-section__content">
+          {{ section.content | markdown | safe }}
+        </div>
+      </div>
+    </section>
+    {% endfor %}
+
     <!-- Facebook Feed (purple) -->
     <section id="facebook" class="section section--purple">
       <div class="container">
-        <h2 class="section__title">Follow Us on Facebook</h2>
+        <h2 class="section__title">{{ facebook.heading }}</h2>
         <div class="facebook-plugin">
           <div id="fb-root"></div>
           <div class="fb-page"
                data-href="{{ site.facebookUrl }}"
-               data-tabs="timeline"
+               data-tabs="{% if facebook.showTimeline %}timeline{% endif %}"
                data-width="500"
-               data-height="600"
+               data-height="{{ facebook.height | default(600) }}"
                data-small-header="false"
                data-adapt-container-width="true"
-               data-hide-cover="false"
-               data-show-facepile="true">
+               data-hide-cover="{% if facebook.showCover %}false{% else %}true{% endif %}"
+               data-show-facepile="{% if facebook.showFacepile %}true{% else %}false{% endif %}">
             <blockquote cite="{{ site.facebookUrl }}" class="fb-xfbml-parse-ignore">
               <a href="{{ site.facebookUrl }}">Pixelasia Productions Dili on Facebook</a>
             </blockquote>
