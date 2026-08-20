@@ -734,6 +734,31 @@ details[open] .faq__question::after {
 }
 
 /* ============================================================
+   FACEBOOK FEED
+   ============================================================ */
+.facebook-feed {
+  background: var(--bg-alt);
+  padding: 64px 20px;
+  text-align: center;
+}
+
+.facebook-feed .section-title {
+  margin-bottom: 2rem;
+}
+
+.facebook-plugin {
+  display: flex;
+  justify-content: center;
+}
+
+.facebook-plugin .fb-page,
+.facebook-plugin .fb-page span,
+.facebook-plugin .fb-page span iframe[style] {
+  width: 100% !important;
+  max-width: 500px;
+}
+
+/* ============================================================
    CONTACT
    ============================================================ */
 .contact {
