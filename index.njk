@@ -1,0 +1,395 @@
+---
+permalink: /index.html
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="canonical" href="{{ site.url }}/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.url }}/">
+  <meta property="og:image" content="{{ site.url }}/{{ site.ogImage }}">
+  <meta property="og:site_name" content="{{ site.company }}">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ site.title }}">
+  <meta name="twitter:description" content="{{ site.description }}">
+  <meta name="twitter:image" content="{{ site.url }}/{{ site.ogImage }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Netlify Identity Widget (for CMS login) -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <!-- Schema.org: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ site.company }}",
+    "url": "{{ site.url }}",
+    "logo": "{{ site.url }}/{{ site.logoImage }}",
+    "foundingDate": "{{ site.foundingDate }}",
+    "founder": {
+      "@type": "Person",
+      "name": "{{ site.founder }}"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.street }}",
+      "addressLocality": "{{ site.city }}",
+      "addressCountry": "{{ site.countryCode }}"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+670-7802-4019",
+      "email": "{{ site.email }}",
+      "contactType": "customer service"
+    },
+    "sameAs": [
+      "{{ site.facebookUrl }}",
+      "{{ site.youtubeUrl }}",
+      "{{ site.googleMapsEmbed }}"
+    ]
+  }
+  </script>
+
+  <!-- Schema.org: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{ site.company }}",
+    "image": "{{ site.url }}/{{ site.logoImage }}",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ site.street }}",
+      "addressLocality": "{{ site.city }}",
+      "addressCountry": "{{ site.countryCode }}"
+    },
+    "telephone": "+670-7802-4019",
+    "email": "{{ site.email }}",
+    "url": "{{ site.url }}",
+    "priceRange": "{{ site.priceRange }}",
+    "openingHours": "{{ site.openingHours }}",
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": {{ site.latitude }},
+      "longitude": {{ site.longitude }}
+    },
+    "hasMap": "{{ site.googleMapsUrl }}"
+  }
+  </script>
+
+  <!-- Schema.org: Services -->
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Video Production",
+      "provider": { "@type": "Organization", "name": "{{ site.company }}" },
+      "areaServed": { "@type": "Country", "name": "{{ site.country }}" },
+      "description": "Award-winning corporate video production, documentaries and film production in Dili, Timor-Leste. Full-service audiovisual production with state-of-the-art equipment."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Event Management",
+      "provider": { "@type": "Organization", "name": "{{ site.company }}" },
+      "areaServed": { "@type": "Country", "name": "{{ site.country }}" },
+      "description": "Professional event management in Dili, including concerts, conferences, road shows, film festivals and corporate celebrations across Timor-Leste."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Radio Advertising",
+      "provider": { "@type": "Organization", "name": "{{ site.company }}" },
+      "areaServed": { "@type": "Country", "name": "{{ site.country }}" },
+      "description": "Radio spot production in Tetun and English for local and international audiences, broadcasted on M3 Radio Dili and local radio stations across Timor-Leste."
+    }
+  ]
+  </script>
+</head>
+<body>
+
+  <!-- Skip Navigation -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="site-header__logo" aria-label="{{ site.company }} – Home">
+        <img src="{{ site.logoImage }}" alt="{{ site.company }} logo" width="286" height="100">
+      </a>
+
+      <!-- Social icons in header bar (brand colors) -->
+      <div class="header-social">
+        <a href="{{ site.youtubeUrl }}" class="header-social__link header-social__link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+        <a href="{{ site.facebookUrl }}" class="header-social__link header-social__link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <ul class="main-nav__list">
+          <li><a href="#about" class="main-nav__link">About</a></li>
+          <li><a href="#portfolio" class="main-nav__link">Portfolio</a></li>
+          <li><a href="#story" class="main-nav__link">Our Story</a></li>
+          <li><a href="#services" class="main-nav__link">Services</a></li>
+          <li><a href="#gallery" class="main-nav__link">Gallery</a></li>
+          <li><a href="#contact" class="main-nav__link">Contact</a></li>
+        </ul>
+        <div class="nav-social">
+          <a href="{{ site.youtubeUrl }}" class="nav-social__link nav-social__link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+          </a>
+          <a href="{{ site.facebookUrl }}" class="nav-social__link nav-social__link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
+          </a>
+        </div>
+      </nav>
+      <div class="nav-overlay" aria-hidden="true"></div>
+    </div>
+  </header>
+
+  <!-- ============ HERO (purple banner with logo) ============ -->
+  <section class="hero" aria-label="Hero">
+    <img src="{{ site.logoWhiteImage }}" alt="{{ site.company }} logo" class="hero__logo" width="3050" height="646">
+  </section>
+
+  <!-- ============ MAIN CONTENT ============ -->
+  <main id="main">
+
+    <!-- About / WE MAKE IT -->
+    <section id="about" class="section section--white">
+      <div class="container">
+        <h1 class="section__title">{{ about.heading }}</h1>
+        <div class="about__grid">
+          <div class="about__text-col">
+            {% for paragraph in about.paragraphs %}
+            <p class="about__text">{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+          <div class="about__image-col">
+            <img src="{{ about.image }}" alt="{{ about.imageAlt }}" class="about__3d-logo" width="891" height="500">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio (purple) -->
+    <section id="portfolio" class="section section--purple">
+      <div class="container">
+        <h2 class="section__title">{{ portfolio.heading }}</h2>
+        <div class="portfolio__grid">
+          <img src="{{ portfolio.image }}" alt="{{ portfolio.imageAlt }}" class="portfolio__image" width="1600" height="1066" loading="lazy">
+          <div class="portfolio__text-wrap">
+            {% for paragraph in portfolio.paragraphs %}
+            <p class="portfolio__text">{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Story (white, two columns) -->
+    <section id="story" class="section section--white">
+      <div class="container">
+        <h2 class="section__title">{{ story.heading }}</h2>
+        <div class="story__grid">
+          <div>
+            {% for paragraph in story.leftColumn %}
+            <p class="story__text">{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+          <div>
+            {% for paragraph in story.rightColumn %}
+            <p class="story__text">{{ paragraph }}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Intro (purple with image) -->
+    <section id="services" class="section section--purple">
+      <div class="container">
+        <h2 class="section__title">{{ services.heading }}</h2>
+        <div class="services-intro__grid">
+          <img src="{{ services.introImage }}" alt="{{ services.introImageAlt }}" class="services-intro__image" width="1600" height="1066" loading="lazy">
+          <p class="services-intro__text">{{ services.intro }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Cards (white) -->
+    <section class="section section--white" aria-label="Service details">
+      <div class="container">
+        <div class="services__grid">
+          {% for card in services.cards %}
+          <article class="service-card">
+            <div class="service-card__image-wrap">
+              <img src="{{ card.image }}" alt="{{ card.imageAlt }}" class="service-card__image" width="800" height="800" loading="lazy">
+              <h3 class="service-card__title">{{ card.title }}</h3>
+            </div>
+            <div class="service-card__body">
+              <p class="service-card__text">{{ card.text }}</p>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery (white) -->
+    <section id="gallery" class="section section--white">
+      <div class="container">
+        <div class="gallery__grid">
+          {% for item in gallery.images %}
+          <figure class="gallery__item">
+            <img src="{{ item.src }}" alt="{{ item.alt }}" width="1200" height="800" loading="lazy">
+          </figure>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact (purple) -->
+    <section id="contact" class="section section--purple">
+      <div class="container">
+        <h2 class="section__title">Send Us a Message!</h2>
+        <div class="contact__grid">
+          <div class="contact__info">
+            <p class="contact__company">{{ site.company }}</p>
+            <p class="contact__legal">{{ site.legal }}</p>
+            <p class="contact__detail">{{ site.street }}</p>
+            <p class="contact__detail">{{ site.city }}, {{ site.country }}</p>
+            <p class="contact__detail"><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>
+            <p class="contact__detail"><a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a> / <a href="tel:{{ site.phoneAltTel }}">{{ site.phoneAlt }}</a></p>
+            <a href="{{ site.googleMapsUrl }}" class="contact__map-link" target="_blank" rel="noopener noreferrer">📍 View on Google Maps</a>
+          </div>
+
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" aria-label="Contact form">
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+            <div class="contact-form__row">
+              <div class="contact-form__group">
+                <label for="name" class="contact-form__label">First Name</label>
+                <input type="text" id="name" name="name" required class="contact-form__input" autocomplete="given-name">
+              </div>
+              <div class="contact-form__group">
+                <label for="lastname" class="contact-form__label">Last Name</label>
+                <input type="text" id="lastname" name="lastname" required class="contact-form__input" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="contact-form__group">
+              <label for="email" class="contact-form__label">Email</label>
+              <input type="email" id="email" name="email" required class="contact-form__input" autocomplete="email">
+            </div>
+
+            <div class="contact-form__group">
+              <label for="message" class="contact-form__label">Message</label>
+              <textarea id="message" name="message" required class="contact-form__textarea"></textarea>
+            </div>
+
+            <button type="submit" class="contact-form__submit">Send</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__info">
+        <p>{{ site.company }}, {{ site.legal }}</p>
+        <p>{{ site.street }} · {{ site.city }}, {{ site.country }}</p>
+        <p><a href="mailto:{{ site.email }}">{{ site.email }}</a> · <a href="tel:{{ site.phoneTel }}">{{ site.phone }}</a></p>
+      </div>
+      <div class="footer__social">
+        <a href="{{ site.youtubeUrl }}" class="footer__social-link footer__social-link--youtube" aria-label="Pixelasia on YouTube" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.4 31.4 0 0 0 0 12a31.4 31.4 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1c.3-1.9.5-3.8.5-5.8s-.2-3.9-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+        <a href="{{ site.facebookUrl }}" class="footer__social-link footer__social-link--facebook" aria-label="Pixelasia on Facebook" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M24 12.1C24 5.4 18.6 0 12 0S0 5.4 0 12.1c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V9.4c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5h-2.8v8.4C19.6 23 24 18.1 24 12.1z"/></svg>
+        </a>
+      </div>
+      <p class="footer__copyright">&copy; 2026 {{ site.company }}, {{ site.legal }}. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Minimal JS: Mobile Navigation Toggle -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.querySelector('.main-nav');
+      var overlay = document.querySelector('.nav-overlay');
+
+      function closeMenu() {
+        nav.classList.remove('is-open');
+        overlay.classList.remove('is-visible');
+        toggle.classList.remove('is-active');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      }
+
+      toggle.addEventListener('click', function () {
+        var isOpen = nav.classList.toggle('is-open');
+        overlay.classList.toggle('is-visible');
+        toggle.classList.toggle('is-active');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+      });
+
+      overlay.addEventListener('click', closeMenu);
+
+      var links = nav.querySelectorAll('.main-nav__link');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', closeMenu);
+      }
+    })();
+  </script>
+
+  <!-- Netlify Identity redirect for CMS -->
+  <script>
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function(user) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function() {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
