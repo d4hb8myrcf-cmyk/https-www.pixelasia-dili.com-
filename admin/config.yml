@@ -1,0 +1,121 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+# Locale for the CMS interface
+locale: "en"
+
+collections:
+  # ─── Site Settings ───
+  - name: "settings"
+    label: "⚙️ Site Settings"
+    files:
+      - name: "site"
+        label: "General Settings"
+        file: "_data/site.json"
+        fields:
+          - { label: "Site Title", name: "title", widget: "string" }
+          - { label: "Site Description (SEO)", name: "description", widget: "text" }
+          - { label: "Website URL", name: "url", widget: "string" }
+          - { label: "Company Name", name: "company", widget: "string" }
+          - { label: "Legal Name", name: "legal", widget: "string" }
+          - { label: "Street", name: "street", widget: "string" }
+          - { label: "City", name: "city", widget: "string" }
+          - { label: "Country", name: "country", widget: "string" }
+          - { label: "Country Code (2-letter)", name: "countryCode", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone (display)", name: "phone", widget: "string" }
+          - { label: "Phone Alt (display)", name: "phoneAlt", widget: "string" }
+          - { label: "Phone (tel: link)", name: "phoneTel", widget: "string" }
+          - { label: "Phone Alt (tel: link)", name: "phoneAltTel", widget: "string" }
+          - { label: "Founding Date", name: "foundingDate", widget: "string" }
+          - { label: "Founder Name", name: "founder", widget: "string" }
+          - { label: "Opening Hours", name: "openingHours", widget: "string" }
+          - { label: "Price Range", name: "priceRange", widget: "string" }
+          - { label: "Latitude", name: "latitude", widget: "number", value_type: "float" }
+          - { label: "Longitude", name: "longitude", widget: "number", value_type: "float" }
+          - { label: "Google Maps URL", name: "googleMapsUrl", widget: "string" }
+          - { label: "Google Maps Embed URL", name: "googleMapsEmbed", widget: "string" }
+          - { label: "YouTube URL", name: "youtubeUrl", widget: "string" }
+          - { label: "Facebook URL", name: "facebookUrl", widget: "string" }
+          - { label: "Logo Image", name: "logoImage", widget: "image" }
+          - { label: "Logo White Image", name: "logoWhiteImage", widget: "image" }
+          - { label: "OG Image (Social Sharing)", name: "ogImage", widget: "image" }
+
+  # ─── Page Sections ───
+  - name: "sections"
+    label: "📄 Page Sections"
+    files:
+      # About
+      - name: "about"
+        label: "About (WE MAKE IT)"
+        file: "_data/about.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+
+      # Portfolio
+      - name: "portfolio"
+        label: "Portfolio"
+        file: "_data/portfolio.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Paragraphs"
+            name: "paragraphs"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+
+      # Our Story
+      - name: "story"
+        label: "Our Story"
+        file: "_data/story.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - label: "Left Column"
+            name: "leftColumn"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+          - label: "Right Column"
+            name: "rightColumn"
+            widget: "list"
+            field: { label: "Paragraph", name: "paragraph", widget: "text" }
+
+      # Services
+      - name: "services"
+        label: "Services"
+        file: "_data/services.json"
+        fields:
+          - { label: "Heading", name: "heading", widget: "string" }
+          - { label: "Introduction Text", name: "intro", widget: "text" }
+          - { label: "Intro Image", name: "introImage", widget: "image" }
+          - { label: "Intro Image Alt Text", name: "introImageAlt", widget: "string" }
+          - label: "Service Cards"
+            name: "cards"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "text", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+
+      # Gallery
+      - name: "gallery"
+        label: "Gallery"
+        file: "_data/gallery.json"
+        fields:
+          - label: "Gallery Images"
+            name: "images"
+            widget: "list"
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }

@@ -1,0 +1,812 @@
+/* ==========================================================================
+   Pixelasia Productions Dili – Stylesheet
+   Matches the original Wix design: alternating purple (#9a78ab) / white
+   ========================================================================== */
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: #7a5a92;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- Skip Link (Accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: #9a78ab;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  font-size: 0.875rem;
+}
+
+.skip-link:focus {
+  top: 0;
+  text-decoration: none;
+}
+
+/* ---------- Utility ---------- */
+.hidden {
+  display: none !important;
+}
+
+.container {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ---------- Header / Navigation ---------- */
+.site-header {
+  background: #fff;
+  height: 45px;
+  position: relative;
+  z-index: 100;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+}
+
+.site-header__logo img {
+  height: 28px;
+  width: auto;
+}
+
+/* Header social icons (brand colors, always visible) */
+.header-social {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.header-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.header-social__link:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.header-social__link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* YouTube brand red */
+.header-social__link--youtube {
+  background: #FF0000;
+}
+
+/* Facebook brand blue */
+.header-social__link--facebook {
+  background: #1877F2;
+}
+
+/* Desktop: hide nav entirely (no menu links visible) */
+.main-nav {
+  display: none;
+}
+
+.main-nav__list {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.main-nav__link {
+  color: #333;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+
+.main-nav__link:hover,
+.main-nav__link:focus {
+  color: #9a78ab;
+  text-decoration: none;
+}
+
+/* Nav social icons (inside mobile slide-out menu) */
+.nav-social {
+  display: flex;
+  gap: 0.5rem;
+  margin-left: 0;
+  margin-top: 1rem;
+}
+
+.nav-social__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.nav-social__link:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.nav-social__link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+/* YouTube brand red */
+.nav-social__link--youtube {
+  background: #FF0000;
+}
+
+/* Facebook brand blue */
+.nav-social__link--facebook {
+  background: #1877F2;
+}
+
+/* Hamburger (hidden on desktop, visible on mobile) */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #333;
+  margin: 4px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #9a78ab;
+  padding: 3rem 1.5rem;
+  min-height: 280px;
+}
+
+.hero__logo {
+  max-width: 420px;
+  width: 70%;
+}
+
+/* ---------- Section Base ---------- */
+.section {
+  padding: 3rem 0;
+}
+
+.section--purple {
+  background: #9a78ab;
+  color: #fff;
+}
+
+.section--white {
+  background: #fff;
+}
+
+.section__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.03em;
+}
+
+/* White sections: purple title */
+.section--white .section__title {
+  color: #9a78ab;
+}
+
+/* Purple sections: white title */
+.section--purple .section__title {
+  color: #fff;
+}
+
+/* ---------- About / WE MAKE IT ---------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.about__text-col {
+  text-align: justify;
+}
+
+.about__text {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+.about__image-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about__3d-logo {
+  max-width: 100%;
+  border-radius: 0;
+}
+
+/* ---------- Portfolio ---------- */
+.portfolio__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.portfolio__image {
+  width: 100%;
+  border-radius: 0;
+}
+
+.portfolio__text-wrap {
+  /* text container */
+}
+
+.portfolio__text {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  text-align: justify;
+  line-height: 1.7;
+  color: #fff;
+}
+
+/* ---------- Our Story ---------- */
+.story__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.story__text {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ---------- Services Intro (purple) ---------- */
+.services-intro__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.services-intro__image {
+  width: 100%;
+  border-radius: 0;
+}
+
+.services-intro__text {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: justify;
+  color: #fff;
+}
+
+/* ---------- Service Cards ---------- */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: #fff;
+}
+
+.service-card__image-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card__image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.service-card__title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(154, 120, 171, 0.85);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.service-card__body {
+  padding: 1.25rem 1rem;
+}
+
+.service-card__text {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: justify;
+}
+
+/* ---------- Gallery ---------- */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.5rem;
+}
+
+.gallery__item {
+  overflow: hidden;
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ---------- Contact (purple) ---------- */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.contact__info {
+  color: #fff;
+}
+
+.contact__company {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.15rem;
+}
+
+.contact__legal {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.25rem;
+}
+
+.contact__detail {
+  margin-bottom: 0.35rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.contact__detail a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.contact__detail a:hover {
+  color: #e0d0ec;
+}
+
+.contact__map-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.4rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+
+.contact__map-link:hover {
+  background: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.contact-form__group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form__label {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.contact-form__input,
+.contact-form__textarea {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.contact-form__input::placeholder,
+.contact-form__textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  outline: none;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.contact-form__textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  padding: 0.6rem 2rem;
+  background: #fff;
+  color: #9a78ab;
+  border: none;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, color 0.2s;
+}
+
+.contact-form__submit:hover {
+  background: #e0d0ec;
+  color: #7a5a92;
+}
+
+.contact-form__submit:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background: #1c1c1c;
+  color: #999;
+  padding: 1.5rem 0;
+}
+
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer__info {
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.footer__info a {
+  color: #bbb;
+}
+
+.footer__social {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.footer__social-link:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+/* Footer social brand colors */
+.footer__social-link--youtube {
+  background: #FF0000;
+}
+
+.footer__social-link--facebook {
+  background: #1877F2;
+}
+
+.footer__social-link svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}
+
+.footer__copyright {
+  width: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  /* Navigation */
+  .nav-toggle {
+    display: block;
+    z-index: 110;
+  }
+
+  /* Hide header social on mobile (shown inside hamburger menu) */
+  .header-social {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 75%;
+    max-width: 300px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
+    padding: 4rem 1.5rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 105;
+  }
+
+  .main-nav.is-open {
+    right: 0;
+  }
+
+  .main-nav__list {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .main-nav__link {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .nav-social {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+
+  /* Overlay */
+  .nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 102;
+  }
+
+  .nav-overlay.is-visible {
+    display: block;
+  }
+
+  /* Hamburger animation */
+  .nav-toggle.is-active .nav-toggle__bar:nth-child(1) {
+    transform: rotate(45deg) translate(4px, 4px);
+  }
+
+  .nav-toggle.is-active .nav-toggle__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.is-active .nav-toggle__bar:nth-child(3) {
+    transform: rotate(-45deg) translate(4px, -4px);
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 200px;
+    padding: 2rem 1rem;
+  }
+
+  .hero__logo {
+    max-width: 280px;
+  }
+
+  /* Sections */
+  .section {
+    padding: 2rem 0;
+  }
+
+  .section__title {
+    font-size: 1.35rem;
+  }
+
+  /* About */
+  .about__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .about__image-col {
+    order: -1;
+  }
+
+  /* All text justified on mobile */
+  .about__text,
+  .portfolio__text,
+  .story__text,
+  .services-intro__text,
+  .service-card__text,
+  .contact__info,
+  .contact__detail {
+    text-align: justify;
+  }
+
+  /* Portfolio */
+  .portfolio__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Story */
+  .story__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Services intro */
+  .services-intro__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Services cards */
+  .services__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Gallery */
+  .gallery__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.35rem;
+  }
+
+  .gallery__item img {
+    height: 140px;
+  }
+
+  /* Contact */
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .site-footer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
