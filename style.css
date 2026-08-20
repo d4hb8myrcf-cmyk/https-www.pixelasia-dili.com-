@@ -423,37 +423,43 @@ ul {
   color: #fff;
 }
 
-/* ---------- Facebook Plugin ---------- */
-.facebook-plugin {
-  display: flex;
-  justify-content: center;
+/* ---------- Latest from Pixelasia (Facebook widget + image grid) ---------- */
+.latest__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-.facebook-plugin .fb-page,
-.facebook-plugin .fb-page span,
-.facebook-plugin .fb-page span iframe[style] {
+/* Facebook widget */
+.latest__widget {
+  order: -1;               /* widget first on mobile */
+}
+
+.latest__widget .fb-page,
+.latest__widget .fb-page span,
+.latest__widget .fb-page span iframe[style] {
   width: 100% !important;
 }
 
-/* ---------- Gallery ---------- */
-.gallery__grid {
+/* Image grid */
+.latest__images {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
 }
 
-.gallery__item {
+.latest__img-wrap {
   overflow: hidden;
 }
 
-.gallery__item img {
+.latest__img-wrap img {
   width: 100%;
   height: 180px;
   object-fit: cover;
   transition: transform 0.3s;
 }
 
-.gallery__item:hover img {
+.latest__img-wrap:hover img {
   transform: scale(1.05);
 }
 
@@ -668,76 +674,9 @@ ul {
    ========================================================================== */
 
 @media (max-width: 767px) {
-  /* Navigation */
-  .nav-toggle {
-    display: block;
-    z-index: 110;
-  }
-
-  /* Hide header social on mobile (shown inside hamburger menu) */
-  .header-social {
+  /* Hide entire header bar on mobile — matches original Wix design */
+  .site-header {
     display: none;
-  }
-
-  .main-nav {
-    display: block;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 75%;
-    max-width: 300px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: -4px 0 16px rgba(0, 0, 0, 0.1);
-    padding: 4rem 1.5rem 2rem;
-    transition: right 0.3s ease;
-    z-index: 105;
-  }
-
-  .main-nav.is-open {
-    right: 0;
-  }
-
-  .main-nav__list {
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: flex-start;
-  }
-
-  .main-nav__link {
-    font-size: 1rem;
-    text-align: left;
-  }
-
-  .nav-social {
-    margin-left: 0;
-    margin-top: 1rem;
-  }
-
-  /* Overlay */
-  .nav-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 102;
-  }
-
-  .nav-overlay.is-visible {
-    display: block;
-  }
-
-  /* Hamburger animation */
-  .nav-toggle.is-active .nav-toggle__bar:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
-  }
-
-  .nav-toggle.is-active .nav-toggle__bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .nav-toggle.is-active .nav-toggle__bar:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
   }
 
   /* Hero */
@@ -804,20 +743,12 @@ ul {
     gap: 1.25rem;
   }
 
-  /* Facebook Plugin */
-  .facebook-plugin .fb-page,
-  .facebook-plugin .fb-page span,
-  .facebook-plugin .fb-page span iframe[style] {
-    max-width: 100% !important;
-  }
-
-  /* Gallery */
-  .gallery__grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Latest from Pixelasia */
+  .latest__images {
     gap: 0.35rem;
   }
 
-  .gallery__item img {
+  .latest__img-wrap img {
     height: 140px;
   }
 
@@ -839,12 +770,29 @@ ul {
 
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .services__grid {
-    grid-template-columns: repeat(3, 1fr);
+@media (min-width: 768px) {
+  /* Latest from Pixelasia: widget left, images right */
+  .latest__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
   }
 
-  .gallery__grid {
+  .latest__widget {
+    order: 0;               /* natural order: widget left */
+  }
+
+  .latest__images {
+    gap: 0.5rem;
+  }
+
+  .latest__img-wrap img {
+    height: 180px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .services__grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
