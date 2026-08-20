@@ -166,7 +166,22 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <img src="https://static.wixstatic.com/media/6f8c19_68cc4aab968440ad85e3d28e7503abe3~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/6f8c19_68cc4aab968440ad85e3d28e7503abe3~mv2.jpg" alt="" class="hero__bg" loading="eager">
+    <!-- Crossfade Slideshow (6 images, 24s loop, Ken-Burns zoom) -->
+    <div style="position:absolute; inset:0; overflow:hidden">
+      <img src="https://static.wixstatic.com/media/6f8c19_68cc4aab968440ad85e3d28e7503abe3~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/6f8c19_68cc4aab968440ad85e3d28e7503abe3~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:0s" loading="eager">
+      <img src="https://static.wixstatic.com/media/6f8c19_c2197b9363244cdcbc26461908d0fe81~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/6f8c19_c2197b9363244cdcbc26461908d0fe81~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:4s" loading="eager">
+      <img src="https://static.wixstatic.com/media/bd5377_54235eb23448489dbe8a31f2ed24769e~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/bd5377_54235eb23448489dbe8a31f2ed24769e~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:8s" loading="eager">
+      <img src="https://static.wixstatic.com/media/6f8c19_49265699ad7a42848c910c182444e364~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/6f8c19_49265699ad7a42848c910c182444e364~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:12s" loading="eager">
+      <img src="https://static.wixstatic.com/media/90d6ae_80f7fccc28964797985324c9e414fea0~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/90d6ae_80f7fccc28964797985324c9e414fea0~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:16s" loading="eager">
+      <img src="https://static.wixstatic.com/media/6f8c19_79bf1509696f489da4d8481736c5cef7~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_85/6f8c19_79bf1509696f489da4d8481736c5cef7~mv2.jpg"
+           alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; filter:saturate(0.8); animation:heroFade 24s ease-in-out infinite; animation-delay:20s" loading="eager">
+    </div>
+    <!-- Gradient overlay -->
     <div class="hero__overlay"></div>
     <div class="hero__content">
       <div class="hero__subtitle">
