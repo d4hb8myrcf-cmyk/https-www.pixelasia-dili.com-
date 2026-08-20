@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
     return md.render(content);
   });
 
-  // Pass through static assets unchanged
+  // Pass through static assets unchanged (includes WebP images)
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("style.css");
   eleventyConfig.addPassthroughCopy("_headers");

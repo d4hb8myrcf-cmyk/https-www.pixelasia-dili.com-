@@ -1,44 +1,28 @@
 {
   "images": [
     {
-      "src": "images/gallery-02.jpg",
+      "src": "images/gallery-02.webp",
       "alt": "Behind the scenes of a Pixelasia video production in Dili"
     },
     {
-      "src": "images/gallery-01.jpg",
+      "src": "images/gallery-01.webp",
       "alt": "Pixelasia crew setting up equipment for an outdoor film shoot in Timor-Leste"
     },
     {
-      "src": "images/gallery-03.jpg",
+      "src": "images/gallery-03.webp",
       "alt": "Community screening event organised by Pixelasia Productions"
     },
     {
-      "src": "images/gallery-04.jpg",
+      "src": "images/gallery-04.webp",
       "alt": "Pixelasia team on location during a documentary shoot"
     },
     {
-      "src": "images/gallery-05.jpg",
+      "src": "images/gallery-05.webp",
       "alt": "Event setup for a conference organised by Pixelasia in Dili"
     },
     {
-      "src": "images/gallery-06.jpg",
+      "src": "images/gallery-06.webp",
       "alt": "Camera work during a Pixelasia corporate video production"
-    },
-    {
-      "src": "images/gallery-07.jpg",
-      "alt": "Mobile cinema road show screening in a rural village in Timor-Leste"
-    },
-    {
-      "src": "images/gallery-08.jpg",
-      "alt": "Dili International Film Festival audience enjoying a screening"
-    },
-    {
-      "src": "images/gallery-09.jpg",
-      "alt": "Pixelasia team collaborating during post-production in Dili"
-    },
-    {
-      "src": "images/gallery-10.jpg",
-      "alt": "Award ceremony at the Dili International Film Festival"
     }
   ]
 }

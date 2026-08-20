@@ -1,25 +1,25 @@
 {
   "heading": "Services",
   "intro": "We provide solutions for all your audiovisual needs. Full production services from the first meetings and brainstorming sessions to the finished communication tool of your choice. Marketing for your company, agency or product and information and education for your target group utilising the right channels!",
-  "introImage": "images/team.jpg",
+  "introImage": "images/team.webp",
   "introImageAlt": "Pixelasia Productions team on location in Timor-Leste",
   "cards": [
     {
       "title": "Creative Services",
       "text": "We have produced award-winning documentaries such as \"Running Far\" about a Timorese runner at the New York Marathon or \"The Road to acceptance\" for the LGBTI community of Timor-Leste. Our superheroes \"Super Trainer\" and \"Feto Fantastiku\" show how business can be better and conflicts can be solved without using violence, and our everyday heroes showcase their strength and determination in our internationally acclaimed documentaries.",
-      "image": "images/service-creative.jpg",
+      "image": "images/service-creative.webp",
       "imageAlt": "Camera operator filming on location in Timor-Leste"
     },
     {
       "title": "Events",
       "text": "We provide professional event management in Dili, including concerts, conferences, road shows, film festivals and corporate celebrations. Working together with a range of clients from government sectors to international companies, we have extensive experience in planning and organising events across Timor-Leste.",
-      "image": "images/service-events.jpg",
+      "image": "images/service-events.webp",
       "imageAlt": "Live event production and conference setup in Dili"
     },
     {
       "title": "Radio",
       "text": "We develop and produce radio advertising in Timor-Leste – in Tetun for local radio stations and in English to be broadcasted on our own radio station here at Pixelasia, M3 Radio Dili. Since the beginning we have worked closely with our Timorese crew to ensure that we understand our target group and use appropriate language or slang – in Dili and in the districts.",
-      "image": "images/service-radio.jpg",
+      "image": "images/service-radio.webp",
       "imageAlt": "Radio production studio at M3 Radio Dili"
     }
   ]

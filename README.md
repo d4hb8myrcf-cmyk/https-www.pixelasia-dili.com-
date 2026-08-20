@@ -27,19 +27,64 @@ Website für [Pixelasia Productions Dili](https://www.pixelasia-dili.com), die e
 | CSS | `style.css` — Custom Properties, responsive |
 | Fonts | System-Fonts (Arial, Helvetica, sans-serif) |
 | Facebook | Facebook Page Plugin (SDK v21.0) |
+| Bilder | **WebP** (konvertiert mit cwebp, Qualität 80) |
 
 ---
 
-## ⚠️ WICHTIG: Webseite und CMS synchron halten
+## ⚠️ KRITISCH: Webseite, CMS und Daten IMMER synchron halten
 
-> **Jede Änderung an der Webseite (index.njk, style.css) muss auch im CMS (admin/config.yml) und den Datendateien (_data/*.json) aktualisiert werden — und umgekehrt.**
+> **Jede Änderung an der Webseite MUSS gleichzeitig an ALLEN DREI Stellen gemacht werden:**
 >
-> Wenn die Struktur in `index.njk` nicht zu den Feldern in `config.yml` und den Daten in `_data/*.json` passt, kann der Build fehlschlagen oder Inhalte verschwinden.
+> 1. **Template** (`index.njk`) — Was auf der Seite angezeigt wird
+> 2. **CMS-Config** (`admin/config.yml`) — Welche Felder im CMS editierbar sind
+> 3. **Datendateien** (`_data/*.json`) — Die eigentlichen Inhalte
 >
-> **Checkliste bei Änderungen:**
-> 1. Template ändern (`index.njk`) → CMS-Config anpassen (`admin/config.yml`) → Daten-Datei anlegen/anpassen (`_data/*.json`)
-> 2. CMS-Feld hinzufügen (`config.yml`) → Template anpassen (`index.njk`) → Default-Wert in Daten-Datei (`_data/*.json`)
-> 3. Immer alle drei Stellen prüfen!
+> **Wenn diese drei nicht übereinstimmen, ist die Seite kaputt!**
+>
+> ### Checkliste bei JEDER Änderung:
+>
+> | Änderung an… | Dann auch anpassen: |
+> |---|---|
+> | Template (`index.njk`) | → `admin/config.yml` + `_data/*.json` |
+> | CMS-Config (`config.yml`) | → `index.njk` + `_data/*.json` |
+> | Datendatei (`_data/*.json`) | → `index.njk` + `admin/config.yml` |
+>
+> ### Beispiele aus der Vergangenheit (was schiefgehen kann):
+>
+> - **Gallery**: Template zeigt **6 Bilder**, aber `gallery.json` hatte **10 Einträge** → 4 Bilder wurden geladen aber nie angezeigt (verschwendete Bandbreite)
+> - **Facebook-Widget**: Im Template ist es mit der Gallery in EINER Sektion kombiniert, aber das README beschrieb sie als getrennte Sektionen → Verwirrung bei der Wartung
+
+---
+
+## ⚠️ KRITISCH: Bilder und WebP-Format
+
+> **Alle Bilder auf der Seite sind im WebP-Format.** Die Datendateien (`_data/*.json`) verweisen auf `.webp`-Dateien.
+>
+> ### Was passiert, wenn man Bilder über das CMS hochlädt?
+>
+> Das CMS (Decap) speichert Bilder im Original-Format (JPG/PNG). Das funktioniert — die Seite zeigt sie an — aber die Performance-Optimierung geht verloren.
+>
+> ### Workflow bei neuen Bildern:
+>
+> 1. Bild über CMS hochladen (geht als JPG/PNG nach `images/`)
+> 2. **Danach manuell in WebP konvertieren:**
+>    ```bash
+>    cwebp -q 80 images/neues-bild.jpg -o images/neues-bild.webp
+>    ```
+> 3. In der entsprechenden `_data/*.json` den Pfad von `.jpg` auf `.webp` ändern
+> 4. Committen und pushen
+>
+> ### Maximale Bildbreiten:
+>
+> | Bild-Typ | Max. Breite | Grund |
+> |---|---|---|
+> | Logos (Header) | 572px | Anzeige bei 286px, 2× für Retina |
+> | Hero-Logo | 840px | Anzeige bei 420px, 2× für Retina |
+> | Gallery-Bilder | 1200px | Volle Breite auf Desktop |
+> | Service-Bilder | 800px | Karten-Layout |
+> | Team-Bild | 1000px | Grid-Layout ~490px, 2× für Retina |
+>
+> **Keine Bilder über 1200px Breite hochladen!** Ein 3000px-Bild für eine 400px-Anzeige verschlechtert den PageSpeed-Score massiv.
 
 ---
 
@@ -48,7 +93,7 @@ Website für [Pixelasia Productions Dili](https://www.pixelasia-dili.com), die e
 ```
 ├── index.njk                 # Haupttemplate (Nunjucks) — Eleventy baut daraus index.html
 ├── style.css                 # Stylesheet (wird 1:1 kopiert nach _site/)
-├── _headers                  # Netlify HTTP-Headers (CSP, Security)
+├── _headers                  # Netlify HTTP-Headers (CSP, Security, Cache)
 ├── eleventy.config.js        # Eleventy-Konfiguration (Passthrough, Markdown-Filter)
 ├── netlify.toml              # Netlify Build-Konfiguration
 ├── package.json              # Dependencies (Eleventy, markdown-it)
@@ -59,20 +104,23 @@ Website für [Pixelasia Productions Dili](https://www.pixelasia-dili.com), die e
 │   ├── portfolio.json        # Portfolio Sektion
 │   ├── story.json            # Our Story Sektion
 │   ├── services.json         # Services + Karten
-│   ├── facebook.json         # Facebook Feed Sektion (Heading, Einstellungen)
-│   ├── gallery.json          # Bildergalerie
+│   ├── facebook.json         # Facebook Widget Einstellungen
+│   ├── gallery.json          # Bildergalerie (6 Bilder)
 │   └── customSections.json   # Benutzerdefinierte Sektionen
 │
 ├── admin/                    # Decap CMS
 │   ├── index.html            # CMS-Login-Seite
 │   └── config.yml            # CMS-Konfiguration (Felder, Collections)
 │
-├── images/                   # Bilder (lokal)
-│   ├── logo-purple.png / logo-white.png / logo-3d.jpg
-│   ├── favicon-*.png / apple-touch-icon.png
-│   ├── gallery-01.jpg … gallery-10.jpg
-│   ├── service-creative.jpg / service-events.jpg / service-radio.jpg
-│   └── team.jpg
+├── images/                   # Bilder (lokal, WebP-optimiert)
+│   ├── logo-purple.webp / logo-white.webp / logo-horizontal.webp
+│   ├── logo-3d.webp
+│   ├── favicon-*.png / apple-touch-icon.png  (Favicons bleiben PNG)
+│   ├── og-image.jpg                          (OG-Image bleibt JPG für Social Media)
+│   ├── gallery-01.webp … gallery-06.webp     (6 Gallery-Bilder)
+│   ├── service-creative.webp / service-events.webp / service-radio.webp
+│   ├── team.webp / story.webp
+│   └── *.jpg / *.png                         (Originale als Backup)
 │
 ├── robots.txt                # SEO
 ├── sitemap.njk               # Sitemap-Template
@@ -103,10 +151,11 @@ Die Seite ist ein Onepager mit folgenden Sektionen:
 | 6 | Services (Intro) | Lila | `services.json` |
 | 7 | Service Cards | Weiß | `services.json` |
 | 8 | **Custom Sections** ➕ | Wählbar (weiß/lila) | `customSections.json` |
-| 9 | **Facebook Feed** | Lila | `facebook.json` + `site.json` |
-| 10 | Gallery | Weiß | `gallery.json` |
-| 11 | Contact | Lila | `site.json` |
-| 12 | Footer | Dunkel | `site.json` |
+| 9 | **Latest from Pixelasia** (Facebook-Widget + 6 Gallery-Bilder) | Weiß | `facebook.json` + `gallery.json` |
+| 10 | Contact | Lila | `site.json` |
+| 11 | Footer | Dunkel | `site.json` |
+
+> **Hinweis:** Facebook-Widget und Gallery-Bilder sind in EINER Sektion ("Latest from Pixelasia") kombiniert. Desktop: Widget links, 6 Bilder rechts im 2×3-Grid. Mobile: Widget oben, Bilder darunter. Das Template zeigt **maximal 6 Bilder** aus `gallery.json`.
 
 ---
 
@@ -124,7 +173,7 @@ Unter **➕ Custom Sections** im CMS:
 2. **Heading**: Überschrift der neuen Sektion
 3. **Content**: Text mit dem Markdown-Editor (fett, kursiv, Links, Listen möglich)
 4. **Background Color**: Weiß oder Lila wählen
-5. Publish → Die neuen Sektionen erscheinen zwischen den Service Cards und dem Facebook Feed
+5. Publish → Die neuen Sektionen erscheinen zwischen den Service Cards und "Latest from Pixelasia"
 
 ### Facebook Feed anpassen
 
@@ -132,6 +181,35 @@ Unter **📄 Page Sections → Facebook Feed** im CMS:
 - **Section Heading**: z.B. "Latest from Pixelasia"
 - **Plugin Height**: Höhe in Pixeln (Standard: 600)
 - **Show Timeline / Cover / Facepile**: Ein/Aus-Schalter
+
+### Gallery-Bilder ändern
+
+Unter **📄 Page Sections → Gallery** im CMS:
+- Bilder hinzufügen/entfernen/umsortieren
+- **Maximal 6 Bilder** — das Template zeigt nur die ersten 6 an
+- ⚠️ **Nach dem Upload:** Bilder manuell in WebP konvertieren (siehe Abschnitt oben)
+
+---
+
+## PageSpeed-Optimierung (umgesetzt)
+
+Folgende Optimierungen wurden durchgeführt, um den Mobile-Score von 80 auf ~93-96 zu bringen:
+
+### 1. Bilder (Einsparung ~2,8 MB)
+- Alle Bilder in **WebP** konvertiert (Qualität 80)
+- Überdimensionierte Logos verkleinert (z.B. `logo-purple.png` von 11811px → 572px: **348 KB → 12 KB**)
+- `fetchpriority="high"` auf dem LCP-Element (Hero-Logo)
+- `loading="lazy"` auf allen Below-the-fold-Bildern
+- `width` und `height` Attribute auf allen `<img>`-Tags
+
+### 2. Render-Blocking beseitigt (Einsparung ~1.270ms)
+- **Critical CSS** inline im `<style>`-Tag (Header, Hero, Basis-Layout)
+- **Vollständiges Stylesheet** per `<link rel="preload">` asynchron geladen
+- **Netlify Identity Widget** von synchron auf `defer` umgestellt
+
+### 3. Cache-Header (Repeat-Visits)
+- `Cache-Control: public, max-age=31536000, immutable` für alle statischen Assets
+- Konfiguriert in `_headers`
 
 ---
 
@@ -193,13 +271,13 @@ In `_headers` konfiguriert:
 - [x] Statischer Onepager mit Eleventy
 - [x] Decap CMS für Content-Verwaltung
 - [x] Netlify Hosting + automatische Deploys
-- [x] Facebook Page Plugin (Timeline)
+- [x] Facebook Page Plugin (Timeline) — kombiniert mit Gallery in einer Sektion
 - [x] Custom Sections (CMS-gesteuert, Hintergrundfarbe wählbar)
 - [x] SEO-Optimierung (Schema.org, Meta-Tags, OG)
 - [x] Responsive Design
 - [x] Security Headers + CSP
+- [x] Bilder optimiert (WebP, verkleinert, lazy loading, Cache-Header)
 - [ ] Custom Domain (pixelasia-dili.com) umstellen
-- [ ] Bilder optimieren (WebP/AVIF)
 - [ ] Kontaktformular E-Mail-Benachrichtigung einrichten
 - [ ] Wix-Abo kündigen
 
