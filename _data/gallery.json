@@ -1,12 +1,12 @@
 {
   "images": [
     {
-      "src": "images/gallery-01.jpg",
-      "alt": "Pixelasia crew setting up equipment for an outdoor film shoot in Timor-Leste"
-    },
-    {
       "src": "images/gallery-02.jpg",
       "alt": "Behind the scenes of a Pixelasia video production in Dili"
+    },
+    {
+      "src": "images/gallery-01.jpg",
+      "alt": "Pixelasia crew setting up equipment for an outdoor film shoot in Timor-Leste"
     },
     {
       "src": "images/gallery-03.jpg",
