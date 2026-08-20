@@ -1,8 +1,10 @@
-# Pixelasia Productions Dili - Onepager Struktur
+# Pixelasia Productions Dili — Onepager Struktur
+
+> **Stand August 2026:** Dieses Briefing beschreibt die gewünschte Zielstruktur der neuen Website. Die Umsetzung liegt als Redesign in `index.html` (Option 1b "Clean Modern") vor, ist aber noch nicht deployed — live ist aktuell der Wix-Nachbau über `index.njk` + Eleventy + Netlify. Details siehe `README.md`.
 
 ## Technische Rahmenbedingungen
 
-- Kein Wix. Statisch (Astro/Next.js) oder Webflow
+- Kein Wix. Aktuell: Eleventy 3 + Netlify + Decap CMS
 - CDN mit Asia-Pacific-Knoten
 - Schema-Markup: LocalBusiness + VideoProductionCompany + Service
 - Ladezeit-Ziel: unter 1 Sekunde
@@ -239,7 +241,7 @@ Local expertise."                    house in Timor-Leste."               Since 
 ## Footer
 
 ```
-[Logo]    © 2025 Pixelasia Productions Dili, Unipessoal Lda    |    Dili, Timor-Leste    |    [YouTube] [Facebook] [Instagram]
+[Logo]    © 2026 Pixelasia Productions Dili, Unipessoal Lda    |    Dili, Timor-Leste    |    [YouTube] [Facebook] [Instagram]
 ```
 
 - Kompakt, eine Zeile
